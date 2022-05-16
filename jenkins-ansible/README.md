@@ -48,3 +48,25 @@ target                     : ok=9    changed=9    unreachable=0    failed=0    s
 Wait for the playbook to finish and run the address http://<'IP-ADDRESS'>:8080 in the browser, You should see Jenkins welcome page.
 
 ![alt text](/images/JenkinsWelcomePage.png "Jenkins Welcome Page")
+
+
+## Configuration
+
+* Get Temporary Admin Password
+```bash
+root@vagrant:/home/vagrant/jenkins# cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+
+* Paste this password inside page and click Continue
+![alt text](/images/AdminPassword.png "Admin Password")
+
+* Next install suggested plugins
+![alt text](/images/SuggestedPlugins.png "Suggested Plugins")
+
+* Wait For installation completed and click 
+![alt text](/images/SuggestedPlugins2.png "Suggested Plugins")
+
+* Setup local admin account and click **Save and Continue** and then **Save and FInish**
+![alt text](/images/LocalAdminAccount.png "Suggested Plugins")
+
+After that our Jenkins setup is complete and we can start using Jenkins.
