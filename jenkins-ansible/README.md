@@ -2,8 +2,6 @@
 
 ## How to run
 ```bash
-
-```bash
 git clone https://github.com/spy86/CI_CD
 cd jenkins-ansible
 ansible-playbook jenkins.yaml -i inventory
