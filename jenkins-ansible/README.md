@@ -2,6 +2,10 @@
 
 ## How to run
 ```bash
+
+```bash
+git clone https://github.com/spy86/CI_CD
+cd jenkins-ansible
 ansible-playbook jenkins.yaml -i inventory
 ```
 
@@ -42,3 +46,7 @@ PLAY RECAP *********************************************************************
 target                     : ok=9    changed=9    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 
 ```
+
+Wait for the playbook to finish and run the address http://<'IP-ADDRESS'>:8080 in the browser, You should see Jenkins welcome page.
+
+![alt text](/images/JenkinsWelcomePage.png "Jenkins Welcome Page")

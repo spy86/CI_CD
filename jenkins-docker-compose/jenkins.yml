@@ -1,0 +1,9 @@
+version: '3'
+services:
+  jenkins-master-node:
+    image: jenkins/jenkins:lts-jdk11
+    volumes:
+      - /opt/jenkins_home:/var/jenkins_home
+    ports:
+      - "8080:8080"
+      - "50000:50000"
