@@ -1,0 +1,34 @@
+---
+- hosts: target
+  become: yes
+  become_user: root
+  tasks:
+
+  - name: Import the jenkins apt key
+    apt_key:
+      url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
+      state: present
+    become: true
+
+  - name: Add Jenkins apt repository entry
+    apt_repository:
+      repo: 'deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/'
+      state: present
+    become: true
+
+  - name: Ansible apt install default-jre
+    apt:
+      name: default-jre
+      state: present
+
+  - name: Ansible apt install default-jre
+    apt:
+      name: jenkins
+      state: present
+
+  - name: Ensure jenkins is installed
+    apt: name=jenkins update_cache=yes
+    become: yes
+
+  - name: Ensure jenkins is running
+    service: name=jenkins state=started
