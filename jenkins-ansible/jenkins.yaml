@@ -12,16 +12,27 @@
 
   - name: Add Jenkins apt repository entry
     apt_repository:
-      repo: 'deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/'
+      repo: 'deb http://pkg.jenkins.io/debian-stable binary/'
       state: present
     become: true
+
+  - name: Ansible apt install ca-certificates
+    apt:
+      name: ca-certificates
+      state: present
+
+  - name: Update and apt packages
+    apt:
+      upgrade: no
+      update_cache: yes
+      cache_valid_time: 86400 
 
   - name: Ansible apt install default-jre
     apt:
       name: default-jre
       state: present
 
-  - name: Ansible apt install default-jre
+  - name: Ansible apt install jenkins
     apt:
       name: jenkins
       state: present
