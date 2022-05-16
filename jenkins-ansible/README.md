@@ -63,7 +63,7 @@ root@vagrant:/home/vagrant/jenkins# cat /var/lib/jenkins/secrets/initialAdminPas
 * Next install suggested plugins
 ![alt text](/images/SuggestedPlugins.png "Suggested Plugins")
 
-* Wait For installation completed and click 
+* Wait For installation completed and then website will be redirect to creation local admin account.
 ![alt text](/images/SuggestedPlugins2.png "Suggested Plugins")
 
 * Setup local admin account and click **Save and Continue** and then **Save and FInish**
