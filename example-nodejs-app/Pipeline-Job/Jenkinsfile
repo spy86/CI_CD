@@ -1,0 +1,37 @@
+        pipeline {
+            agent any
+            tools {
+                nodejs 'nodejs' 
+            }
+            stages {
+                
+                stage('Checkout repository') {
+                        steps {
+                            cleanWs()
+                            git branch: 'main',
+                                credentialsId: 'github',
+                                url: 'https://github.com/spy86/CI_CD'
+                        }
+                    }
+                stage('Build') {
+                        steps {
+                        sh '''
+                        cd example-nodejs-app/App
+                        npm -version
+                        npm install
+                        npm run build
+                        '''
+                        }
+                    }
+            }
+    post {
+        success {
+                archiveArtifacts artifacts: 'example-nodejs-app/App/dist/*.js', followSymlinks: false
+            cleanWs()
+        }
+    }
+        }
+
+        
+
+
