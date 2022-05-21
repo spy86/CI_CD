@@ -1,0 +1,7 @@
+configuration-as-code:latest
+job-dsl:latest
+ssh-agent:latest
+authorize-project:latest
+role-strategy:latest
+matrix-auth:latest
+slack:latest

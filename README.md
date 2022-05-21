@@ -7,3 +7,5 @@
 * Build sample NodeJS application
   * [Freestyle Job](example-nodejs-app/freestyle)
   * [Pipeline](example-nodejs-app/pipeline)
+* Jenkins as a Code
+  * [Jenkins Configuration as a Code](jenkins-casc)

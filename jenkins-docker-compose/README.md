@@ -34,7 +34,7 @@ docker exec $container_id cat /var/jenkins_home/secrets/initialAdminPassword
 * Wait For installation completed and then website will be redirect to creation local admin account.
 ![alt text](/images/SuggestedPlugins2.png "Suggested Plugins")
 
-* Setup local admin account and click **Save and Continue** and then **Save and FInish**
+* Setup local admin account and click **Save and Continue** and then **Save and Finish**
 ![alt text](/images/LocalAdminAccount.png "Suggested Plugins")
 
 After that our Jenkins setup is complete and we can start using Jenkins.

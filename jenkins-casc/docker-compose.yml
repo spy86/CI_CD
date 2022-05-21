@@ -1,0 +1,12 @@
+version: "3"
+
+services: 
+  jenkins-controller-node:
+    container_name: jenkins-controller-node
+    restart: always
+    build: .
+    ports: 
+      - "8089:8080"
+    volumes: 
+      - ./jenkins_home:/var/jenkins_home
+  
