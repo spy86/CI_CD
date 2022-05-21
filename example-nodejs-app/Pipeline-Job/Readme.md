@@ -3,7 +3,6 @@
 ## Requirements
 * [NodeJS Plugin](https://plugins.jenkins.io/nodejs/)
 * [Repository with code](https://github.com/spy86/CI_CD/tree/main/example-nodejs-app/App)
-* Docker
 
 ## Steps to be performed
 
