@@ -1,0 +1,15 @@
+version: "3"
+
+services: 
+  jenkins-controller-node:
+    container_name: jenkins-controller-node
+    restart: always
+    build: .
+    environment:
+      CASC_JENKINS_CONFIG: /var/jenkins_casc.yml
+    ports: 
+      - "8089:8080"
+    volumes: 
+      - ./jenkins_home:/var/jenkins_home
+      - ./configurations.yml:/var/jenkins_casc.yml
+  

@@ -1,0 +1,53 @@
+jenkins:
+  systemMessage: "CHANGED Jenkins configured automatically by Jenkins Configuration as Code plugin\n\n"
+  numExecutors: 1
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  remotingSecurity:
+    enabled: false
+unclassified:
+  location:
+    url: "http://192.168.123.123:8089"
+  slackNotifier:
+    baseUrl: "https://test.enterprise.slack.com"
+    tokenCredentialId: "slack-token"
+security:
+  globalJobDslSecurityConfiguration:
+    useScriptSecurity: false
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - usernamePassword:
+              scope: GLOBAL
+              id: "github-token"
+              username: "CHANGE_ME"
+              password: "CHANGE_ME"
+              description: "GitHub Token"
+          - string:
+              scope: GLOBAL
+              id: "slack-token"
+              secret: "CHANGE_ME"
+jobs:
+  - script: >
+      freeStyleJob("seedjob") {
+          displayName("Seedjob")
+          description("Create Jobs from this seedjob")
+
+          scm {
+              git {
+                  remote {
+                      github("http://git.localhost.localdomain/testrepo.git")
+                      credentials("github-token")
+                  }
+              }
+          }
+
+          steps {
+              dsl {
+                  removeAction("DISABLE")
+                  external("seed_jobdsl.groovy")
+              }
+          }
+      }
