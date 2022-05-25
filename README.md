@@ -1,5 +1,5 @@
 # Continuous Integration and Continuous Deployment
-
+![alt text](/images/ci-cd.jpg "")
 ## Content
 * Install Jenkins
   * [With simple ansible playbook](jenkins-ansible/README.md)
