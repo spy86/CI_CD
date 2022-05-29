@@ -8,7 +8,7 @@ listView('project-A') {
     }
     jobFilters {
         status {
-            status(Status.SUCESS)
+            status(Status.SUCCESS)
         }
     }
     columns {
