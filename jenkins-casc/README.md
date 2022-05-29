@@ -76,4 +76,4 @@ Now we can apply new configuration. Go to `Manage Jenkins` --> `Configuration as
 * Plugin website(https://www.jenkins.io/projects/jcasc/)
 * Documentation(https://github.com/jenkinsci/configuration-as-code-plugin/blob/master/README.md)
 * Secrets in JCASC(https://github.com/jenkinsci/configuration-as-code-plugin/blob/master/docs/features/secrets.adoc)
-* COnfiguration Reload (https://github.com/jenkinsci/configuration-as-code-plugin/blob/master/docs/features/configurationReload.md)
+* Configuration Reload (https://github.com/jenkinsci/configuration-as-code-plugin/blob/master/docs/features/configurationReload.md)
