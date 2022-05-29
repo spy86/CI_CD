@@ -1,0 +1,42 @@
+pipeline {
+  environment {
+    imagename = "${IMAGE_NAME}"
+    servicename = "example-container"
+    registryCredential = 'dockerhub'
+    dockerImage = ''
+  }
+  agent any
+  stages {
+    stage('Checkout repository') {
+      steps {
+        git([url: 'https://github.com/spy86/docker-dart.git', branch: 'main'])
+
+      }
+    }
+    stage('Building docker image') {
+      steps{
+        script {
+          dockerImage = docker.build imagename
+        }
+      }
+    }
+    stage('Push docker Image') {
+      steps{
+        script {
+          docker.withRegistry( '', registryCredential ) {
+            dockerImage.push("$BUILD_NUMBER")
+             dockerImage.push('latest')
+
+          }
+        }
+      }
+    }
+    stage('Deploy to swarm') {
+      steps{
+        sh " docker service  create --name $servicename $imagename:$BUILD_NUMBER"
+         sh "docker service ls | grep $servicename"
+
+      }
+    }
+  }
+}
