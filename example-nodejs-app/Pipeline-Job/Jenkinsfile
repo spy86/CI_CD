@@ -9,7 +9,6 @@
                         steps {
                             cleanWs()
                             git branch: 'main',
-                                credentialsId: 'github',
                                 url: 'https://github.com/spy86/CI_CD'
                         }
                     }
