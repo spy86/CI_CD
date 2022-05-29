@@ -49,9 +49,11 @@ After a while, the jenkins image will be built and run. We can enter it using th
 * Seed Example job:
   * Run job with following parameters
 ![alt text](/images/build29.png "")
-  * When the job finishes running, you should see a job named example
+  * When the job finishes running, you should see a job named **example**
+![alt text](/images/build31.png "")
 
 * Seed Example view:
   * Run job with following parameters
 ![alt text](/images/build30.png "")
-  * When the job finishes running, you should see a view named example
+  * When the job finishes running, you should see a view named **project-A** with job inside
+  ![alt text](/images/build32.png "")
