@@ -1,12 +1,10 @@
-pipelineJob('job-dsl-artifactory-pipeline-example') {
-    parameters {
-        stringParam('SERVER_ID', '', 'Enter Artifactory server ID')
-    }
-
-    definition {
-        cps {
-            script(readFileFromWorkspace('jenkins-examples/pipeline-examples/scripted-examples/declarative-example/Jenkinsfile'))
-            sandbox()
+freeStyleJob('example') {
+    logRotator(-1, 10)
+    parameters{
+        stringParam('Param1', '', 'Example description')
+        stringParam('Param2', '', 'Example description')
         }
+    steps {
+        shell('echo START')
     }
-}
+    }
