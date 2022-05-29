@@ -6,11 +6,6 @@ listView('project-A') {
         name('example')
         regex(/example.+/)
     }
-    jobFilters {
-        status {
-            status(Status.SUCCESS)
-        }
-    }
     columns {
         status()
         weather()

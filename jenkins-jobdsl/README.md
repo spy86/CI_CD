@@ -29,11 +29,11 @@ After a while, the jenkins image will be built and run. We can enter it using th
 
 * Click `New Item`
 
-* Enter an item name **Seedjob** choose `Freestyle project` and click **OK**
+* Enter an item name **Seed_job_and_view** choose `Freestyle project` and click **OK**
 ![alt text](/images/build24.png "")
 
 * In Source Code Management change to `git` and add repository https://github.com/spy86/CI_CD and change branch to `main`.
-![alt text](/images/build9.png "")
+![alt text](/images/build28.png "")
 
 * Enable `This project is parameterized` next add choice and string parameter which will be used in DSL.
 ![alt text](/images/build25.png "")
@@ -45,3 +45,13 @@ After a while, the jenkins image will be built and run. We can enter it using th
 * We leave the rest of the settings as default and click **Save**
 
 #### Test Job DSL
+
+* Seed Example job:
+  * Run job with following parameters
+![alt text](/images/build29.png "")
+  * When the job finishes running, you should see a job named example
+
+* Seed Example view:
+  * Run job with following parameters
+![alt text](/images/build30.png "")
+  * When the job finishes running, you should see a view named example
