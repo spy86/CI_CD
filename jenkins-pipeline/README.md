@@ -37,6 +37,7 @@
 Now we can run our pipeline. 
 
 * Click `Build with Parameters` provide image name and click **Build**
+![alt text](/images/Jenkins7.png "")
 
 After a while, our pipeline should build a docker image and then send it to the docherhub.
 
