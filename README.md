@@ -12,11 +12,11 @@
 * Jenkins Job DSL
   * [Jenkins Job DSL](jenkins-jobdsl/README.md)
 * Jenkins pipelines
-  * [Jenkins pipelines]()
+  * [Jenkins pipelines](jenkins-pipeline/README.md)
 * Full pipeline
-  * [Example of full flow pipeline]()
+  * [Example of full flow pipeline](jenkins-full-flow-pipeline/README.md)
 * Jenkins integrations
-  * [Jira]()
-  * [Email/Slack]()
-  * [Sonarqube]()
-  * [Advanced integration]()
+  * [Jira](jenkins-integrations/jira/README.md)
+  * [Email/Slack](jenkins-integrations/email_slack/README.md)
+  * [Sonarqube](jenkins-integrations/sonarqube/README.md)
+  * [Advanced integration](jenkins-advanced-integrations/README.md)
