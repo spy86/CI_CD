@@ -10,7 +10,7 @@
 * Jenkins as a Code
   * [Jenkins Configuration as a Code](jenkins-casc/README.md)
 * Jenkins Job DSL
-  * [Jenkins Job DSL]()
+  * [Jenkins Job DSL](jenkins-jobdsl/README.md)
 * Jenkins pipelines
   * [Jenkins pipelines]()
 * Full pipeline
