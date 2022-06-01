@@ -28,6 +28,7 @@
 * Configure Pipeline
   * Enable `This project is parameterized` and setup string parametr with name **IMAGE_NAME**
   * Choose Definition `Pipeline script from SCM`
+  * Repository URL `https://github.com/spy86/CI_CD.git`
   * Credentials empty
   * Branch to build `main`
   * Script Path `jenkins-pipeline/Jenkinsfile`

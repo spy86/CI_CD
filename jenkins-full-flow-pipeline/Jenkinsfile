@@ -1,42 +1,45 @@
+def sonarproject = 'example-nodejs-app'
+def sonarkey = '08f65dfd2e9957f27ae3d5aed4714651c5fb6f88'
+def sonarhost = 'http://127.0.0.1:9000'
+
+
 pipeline {
-  environment {
-    imagename = "${IMAGE_NAME}"
-    servicename = "example-container"
-    registryCredential = 'dockerhub'
-    dockerImage = ''
-  }
-  agent any
-  stages {
-    stage('Checkout repository') {
-      steps {
-        git([url: 'https://github.com/spy86/docker-dart.git', branch: 'main'])
+    agent any
 
-      }
-    }
-    stage('Building docker image') {
-      steps{
-        script {
-          dockerImage = docker.build imagename
+    stages {
+
+        stage('Clear') {
+            steps {
+                cleanWs()
+            }
         }
-      }
-    }
-    stage('Push docker Image') {
-      steps{
-        script {
-          docker.withRegistry( '', registryCredential ) {
-            dockerImage.push("$BUILD_NUMBER")
-             dockerImage.push('latest')
 
-          }
+        stage('Checkout') {
+            steps {
+                git([url: "https://github.com/spy86/CI_CD.git", branch: 'main', credentialsId: '70150275-3513-4731-82e5-46abe898117e	'])
+            }
         }
-      }
+        stage('Run Sonarqube') {
+            steps {
+            dir('example-nodejs-app/App'){
+            sh "/opt/sonar-scanner/bin/sonar-scanner -Dsonar.projectKey=${sonarproject} -Dsonar.sources=. -Dsonar.host.url=${sonarhost} -Dsonar.login=${sonarkey}"
+                }
+            }
+        }
+        stage('Build Image and deploy') {
+            steps {
+            dir('example-nodejs-app/App'){
+            sh "docker-compose up --force-recreate --build -d"
+            sh "docker image prune -f"
+                }
+            }
+        }
+        stage('Check Service') {
+            steps {
+            dir('example-nodejs-app/App'){
+            sh "docker-compose ps"
+                }
+            }
+        }
     }
-    stage('Deploy to swarm') {
-      steps{
-        sh " docker service  create --name $servicename $imagename:$BUILD_NUMBER"
-         sh "docker service ls | grep $servicename"
-
-      }
-    }
-  }
 }
