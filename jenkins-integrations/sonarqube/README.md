@@ -1,7 +1,7 @@
 # Jenkins sonarqube
 
 ## Prerequisites
-* Docker engine (with swarm init)
+* Docker engine
 * Sonarqube
 
 ## How to use ?

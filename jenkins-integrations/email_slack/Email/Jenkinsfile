@@ -38,15 +38,4 @@ pipeline {
       }
     }
   }
-    post {
-        success {
-                slackSend color: "good", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful. More info in this URL ${env.BUILD_URL}"
-        }
-        failure {
-                slackSend color: "danger", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was failed. More info in this URL ${env.BUILD_URL}"
-        }
-        unstable {
-                slackSend color: "warning", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was unstable. More info in this URL ${env.BUILD_URL}"
-        }
-    }
 }
