@@ -45,17 +45,140 @@
 ![alt text](/images/Jenkins17.png "")
 
 #### Configure Pipeline
-* Click on New item and select pipeline and setup name `DockerImageBuild`
-![alt text](/images/Jenkins4.png "")
+* Click on New item and select pipeline and setup name `SlackIntegration`
+![alt text](/images/Jenkins19.png "")
 
 * Configure Pipeline
   * Enable `This project is parameterized` and setup string parametr with name **IMAGE_NAME**
+![alt text](/images/Jenkins20.png "")
   * Choose Definition `Pipeline script from SCM`
   * Repository URL `https://github.com/spy86/CI_CD.git`
   * Credentials empty
   * Branch to build `main`
   * Script Path `jenkins-integrations/email_slack/Slack/Jenkinsfile`
-![alt text](/images/Jenkins5.png "")
+![alt text](/images/Jenkins21.png "")
 
 
 Now we can run our pipeline. 
+
+* Click `Build with Parameters` provide image name and click **Build**
+![alt text](/images/Jenkins22.png "")
+
+After a while, our pipeline should build a docker image and then send notification on Slack channel.
+
+---
+#### Example pipeline console output
+
+```
+Started by user unknown or anonymous
+Obtained jenkins-integrations/email_slack/Slack/Jenkinsfile from git https://github.com/spy86/CI_CD.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/SlackIntegration
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential 70150275-3513-4731-82e5-46abe898117e
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/SlackIntegration/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/spy86/CI_CD.git # timeout=10
+Fetching upstream changes from https://github.com/spy86/CI_CD.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.25.1' 
+ > git fetch --tags --force --progress -- https://github.com/spy86/CI_CD.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 33fe74ba8bc3a1d06614c4f09829622a19ae4b47 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 33fe74ba8bc3a1d06614c4f09829622a19ae4b47 # timeout=10
+Commit message: "update"
+First time build. Skipping changelog.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout repository)
+[Pipeline] git
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/SlackIntegration/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/spy86/docker-dart.git # timeout=10
+Fetching upstream changes from https://github.com/spy86/docker-dart.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.25.1'
+ > git fetch --tags --force --progress -- https://github.com/spy86/docker-dart.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 50684617b5b19c6b17dc8810135e3884aa930b5d (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 50684617b5b19c6b17dc8810135e3884aa930b5d # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D main # timeout=10
+ > git checkout -b main 50684617b5b19c6b17dc8810135e3884aa930b5d # timeout=10
+Commit message: "Update azure-pipelines.yml for Azure Pipelines"
+First time build. Skipping changelog.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Building docker image)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ docker build -t testimage .
+Sending build context to Docker daemon  15.44MB
+
+Step 1/5 : FROM spy86/ubuntu:latest
+ ---> bead38211656
+Step 2/5 : RUN   mkdir -p /tmp/dart &&   cd /tmp/dart &&   curl -O https://storage.googleapis.com/dart-archive/channels/stable/release/2.16.2/linux_packages/dart_2.16.2-1_amd64.deb &&   dpkg -i dart_2.16.2-1_amd64.deb &&   rm -fr /tmp/dart
+ ---> Using cache
+ ---> 09099075ee05
+Step 3/5 : ENV PATH /usr/lib/dart/bin:$PATH
+ ---> Using cache
+ ---> 265ce2258551
+Step 4/5 : WORKDIR /data
+ ---> Using cache
+ ---> 915ac187ea55
+Step 5/5 : CMD ["bash"]
+ ---> Using cache
+ ---> ef5c38218a51
+Successfully built ef5c38218a51
+Successfully tagged testimage:latest
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Remove Unused docker image)
+[Pipeline] sh
++ docker rmi testimage:latest
+Untagged: testimage:latest
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] slackSend
+Slack Send Pipeline step running, values are - baseUrl: <empty>, teamDomain: mtrainingworkspace, channel: , color: good, botUser: false, tokenCredentialId: 6116b420-44c8-4ff2-b9bd-a21d00b8a283, notifyCommitters: false, iconEmoji: <empty>, username: <empty>, timestamp: <empty>
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
+```
+#### Example notification in Slack
+
+![alt text](/images/Jenkins23.png "")
