@@ -17,6 +17,8 @@
   * [Example of full flow pipeline](jenkins-full-flow-pipeline/README.md)
 * Jenkins integrations
   * [Jira](jenkins-integrations/jira/README.md)
-  * [Email/Slack](jenkins-integrations/email_slack/README.md)
+  * Email/Slack
+    * [Email](jenkins-integrations/email_slack/Email/README.md)
+    * [Slack](jenkins-integrations/email_slack/Slack/README.md)
   * [Sonarqube](jenkins-integrations/sonarqube/README.md)
   * [Advanced integration](jenkins-advanced-integrations/README.md)
