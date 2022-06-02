@@ -43,3 +43,19 @@
   The other fields are optional. You can click on the question mark icons next to them for more information. Press Save when you're done.
 
 ![alt text](/images/Jenkins17.png "")
+
+#### Configure Pipeline
+* Click on New item and select pipeline and setup name `DockerImageBuild`
+![alt text](/images/Jenkins4.png "")
+
+* Configure Pipeline
+  * Enable `This project is parameterized` and setup string parametr with name **IMAGE_NAME**
+  * Choose Definition `Pipeline script from SCM`
+  * Repository URL `https://github.com/spy86/CI_CD.git`
+  * Credentials empty
+  * Branch to build `main`
+  * Script Path `jenkins-integrations/email_slack/Slack/Jenkinsfile`
+![alt text](/images/Jenkins5.png "")
+
+
+Now we can run our pipeline. 
