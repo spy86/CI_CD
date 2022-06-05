@@ -1,41 +1,34 @@
-pipeline {
-  environment {
-    imagename = "${IMAGE_NAME}"
-    registryCredential = 'dockerhub'
-    dockerImage = ''
-  }
-  agent any
-  stages {
-    stage('Checkout repository') {
-      steps {
-        git([url: 'https://github.com/spy86/docker-dart.git', branch: 'main'])
+def subject = "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} ${currentBuild.result}"
+def content = '${JELLY_SCRIPT,template="html"}'
+def email_to = "mail@example.com"
 
-      }
-    }
-    stage('Building docker image') {
-      steps{
-        script {
-          dockerImage = docker.build imagename
-        }
-      }
-    }
-    stage('Push docker Image') {
-      steps{
-        script {
-          docker.withRegistry( '', registryCredential ) {
-            dockerImage.push("$BUILD_NUMBER")
-             dockerImage.push('latest')
-
-          }
-        }
-      }
-    }
-    stage('Remove Unused docker image') {
-      steps{
-        sh "docker rmi $imagename:$BUILD_NUMBER"
-         sh "docker rmi $imagename:latest"
-
-      }
-    }
-  }
-}
+ pipeline {  
+     agent any  
+     stages {  
+         stage('Test') {  
+             steps {  
+                 sh 'echo "Run TEST!"; exit 1'  
+             }  
+         }  
+     }  
+     post {  
+         always {  
+             echo 'This will always run'  
+         }  
+         success {  
+             echo 'This will run only if successful'  
+         }  
+         failure {  
+            emailext(body: content, mimeType: 'text/html',
+            replyTo: '$DEFAULT_REPLYTO', subject: subject,
+            to: email_to, attachLog: true )
+         }  
+         unstable {  
+             echo 'This will run only if the run was marked as unstable'  
+         }  
+         changed {  
+             echo 'This will run only if the state of the Pipeline has changed'  
+             echo 'For example, if the Pipeline was previously failing but is now successful'  
+         }  
+     }  
+ }
