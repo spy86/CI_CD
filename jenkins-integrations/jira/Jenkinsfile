@@ -1,0 +1,31 @@
+  stage ('Check Jira ticket') {
+    node ('master') {
+        withEnv(['JIRA_SITE=JIRA-INSTANCE-NAME']) {
+          def issues = jiraJqlSearch jql: "issuetype = Bug AND key = '$TICKET_NUMBER'"
+          def logz = issues.data.toString()
+          println (logz)
+          if (logz ==~ '.*issues:\\[\\].*') {
+            error ("Provided ticket '$TICKET_NUMBER' is not a Bug task")
+          } 
+        }
+      }
+     }
+
+  stage ('Build'){
+    node ('master'){
+        sh "echo 'build some package'"
+    }
+  }
+
+  stage('Update jira ticket') {
+    node ('master') {
+		  def componentName = 'application'
+      def envName = 'dev'
+      def destinationServer = '52be8667-1700'
+      def serverType = 'swarm-worker01'
+        withEnv(['JIRA_SITE=JIRA-INSTANCE-NAME']) {
+        def comment = [ body: "Bug has been completed \n\n Component: ${componentName} \n Artifact: ${env.BUILD_NUMBER} \n Environment: ${envName} \n Server: ${destinationServer} \n Role: ${serverType}" ]
+        jiraAddComment idOrKey: "${TICKET_NUMBER}", input: comment
+      }
+    }
+  }
