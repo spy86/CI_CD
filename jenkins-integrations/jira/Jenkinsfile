@@ -1,5 +1,5 @@
   stage ('Check Jira ticket') {
-    agent any {
+    node (master) {
         withEnv(['JIRA_SITE=JIRA-INSTANCE-NAME']) {
           def issues = jiraJqlSearch jql: "issuetype = Bug AND key = '$TICKET_NUMBER'"
           def logz = issues.data.toString()
@@ -12,13 +12,13 @@
      }
 
   stage ('Build'){
-    agent any {
+    node (master) {
         sh "echo 'build some package'"
     }
   }
 
   stage('Update jira ticket') {
-    agent any {
+    node (master) {
       def componentName = 'application'
       def envName = 'dev'
       def destinationServer = '52be8667-1700'
