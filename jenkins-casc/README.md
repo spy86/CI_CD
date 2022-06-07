@@ -11,6 +11,7 @@
 ```bash
 git clone https://github.com/spy86/CI_CD
 cd jenkins-casc
+chown -R 1000:1000 jenkins_home/
 docker-compose build && docker-compose up -d
 ```
 After a while, the jenkins image will be built and run. We can enter it using the address `http://<IP-ADDRESS>:8089`, when jenkins starts up, an empty jenkins dashboard will appear.
