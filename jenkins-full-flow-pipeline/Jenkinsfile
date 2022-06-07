@@ -16,7 +16,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git([url: "https://github.com/spy86/CI_CD.git", branch: 'main', credentialsId: '70150275-3513-4731-82e5-46abe898117e	'])
+                git([url: "https://github.com/spy86/CI_CD.git", branch: 'main'])
             }
         }
         stage('Run Sonarqube') {
