@@ -6,6 +6,18 @@
 
 ## How to use ?
 
+#### Credentials
+* Login into Sonarqube and generate access token
+
+* Create credentials on Jenkins for dockerhub, go to `Manage Jenkins`-> `Manage Credentials`
+![alt text](/images/Jenkins1.png "")
+
+* Click store `Jenkins` -> `Global credentials (unrestricted)` and then `Add Credentials` on the left menu
+![alt text](/images/Jenkins2.png "")
+
+* Choose `Secret text`, paste token generated in Sonarqube. At the end we save it with the name **sonarkey**
+
+
 #### Configure Pipeline
 * Click on New item and select pipeline and setup name `FullFlowPipeline`
 ![alt text](/images/Jenkins8.png "")

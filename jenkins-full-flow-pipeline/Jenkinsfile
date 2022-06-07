@@ -1,5 +1,4 @@
 def sonarproject = 'example-nodejs-app'
-def sonarkey = '08f65dfd2e9957f27ae3d5aed4714651c5fb6f88'
 def sonarhost = 'http://127.0.0.1:9000'
 
 
@@ -16,14 +15,16 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git([url: "https://github.com/spy86/CI_CD.git", branch: 'main'])
+                git([url: "https://github.com/spy86/CI_CD.git", branch: 'main', credentialsId: 'github'])
             }
         }
         stage('Run Sonarqube') {
             steps {
             dir('example-nodejs-app/App'){
-            sh "/opt/sonar-scanner/bin/sonar-scanner -Dsonar.projectKey=${sonarproject} -Dsonar.sources=. -Dsonar.host.url=${sonarhost} -Dsonar.login=${sonarkey}"
-                }
+            withCredentials([string(credentialsId: 'sonarkey', variable: 'sonarkey')]) {
+                sh "/opt/sonar-scanner/bin/sonar-scanner -Dsonar.projectKey=${sonarproject} -Dsonar.sources=. -Dsonar.host.url=${sonarhost} -Dsonar.login=${sonarkey}"
+                }    
+              }
             }
         }
         stage('Build Image and deploy') {
