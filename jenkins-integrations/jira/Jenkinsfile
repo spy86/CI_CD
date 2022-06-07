@@ -1,5 +1,5 @@
+node {
   stage ('Check Jira ticket') {
-    node (master) {
         withEnv(['JIRA_SITE=JIRA-INSTANCE-NAME']) {
           def issues = jiraJqlSearch jql: "issuetype = Bug AND key = '$TICKET_NUMBER'"
           def logz = issues.data.toString()
@@ -8,17 +8,13 @@
             error ("Provided ticket '$TICKET_NUMBER' is not a Bug task")
           } 
         }
-      }
      }
 
   stage ('Build'){
-    node (master) {
         sh "echo 'build some package'"
     }
-  }
 
   stage('Update jira ticket') {
-    node (master) {
       def componentName = 'application'
       def envName = 'dev'
       def destinationServer = '52be8667-1700'
@@ -28,4 +24,4 @@
         jiraAddComment idOrKey: "${TICKET_NUMBER}", input: comment
       }
     }
-  }
+}
