@@ -1,4 +1,5 @@
 # Continuous Integration and Continuous Deployment
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![alt text](/images/ci-cd.jpg "")
 ## Content
 * Install Jenkins
@@ -22,3 +23,4 @@
     * [Slack](jenkins-integrations/email_slack/Slack/README.md)
   * [Sonarqube](jenkins-integrations/sonarqube/README.md)
   * [Advanced integration](jenkins-advanced-integrations/README.md)
+* [Jenkins authentication and authorization](jenkins-authentication-authorization/README.md)
