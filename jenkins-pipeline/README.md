@@ -9,21 +9,21 @@
 
 #### Credentials
 * Create free account in dockerhub
-![alt text](/images/dockerhub.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/dockerhub.png?raw=true)
 
 * Create credentials on Jenkins for dockerhub, go to `Manage Jenkins`-> `Manage Credentials`
-![alt text](/images/Jenkins1.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins1.png?raw=true)
 
 * Click store `Jenkins` -> `Global credentials (unrestricted)` and then `Add Credentials` on the left menu
-![alt text](/images/Jenkins2.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins2.png?raw=true)
 
 * Choose `Username and Password`, paste login and password for dockerhub as below. At the end we save it with the name "dockerhub"
-![alt text](/images/Jenkins3.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins3.png?raw=true)
 
 ---
 #### Configure Pipeline
 * Click on New item and select pipeline and setup name `DockerImageBuild`
-![alt text](/images/Jenkins4.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins4.png?raw=true)
 
 * Configure Pipeline
   * Enable `This project is parameterized` and setup string parametr with name **IMAGE_NAME**
@@ -32,13 +32,13 @@
   * Credentials empty
   * Branch to build `main`
   * Script Path `jenkins-pipeline/Jenkinsfile`
-![alt text](/images/Jenkins5.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins5.png?raw=true)
 
 
 Now we can run our pipeline. 
 
 * Click `Build with Parameters` provide image name and click **Build**
-![alt text](/images/Jenkins7.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins7.png?raw=true)
 
 After a while, our pipeline should build a docker image and then send it to the docherhub.
 
@@ -240,4 +240,4 @@ Untagged: spy86/test-docker:latest
 Finished: SUCCESS
 ```
 
-![alt text](/images/Jenkins6.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins6.png?raw=true)

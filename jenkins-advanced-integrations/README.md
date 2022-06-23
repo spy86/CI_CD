@@ -9,10 +9,10 @@
 
 #### Credentials
 * Create credentials on Jenkins for bitbucket integration, go to `Manage Jenkins`-> `Manage Credentials`
-![alt text](/images/Jenkins1.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins1.png?raw=true)
 
 * Click store `Jenkins` -> `Global credentials (unrestricted)` and then `Add Credentials` on the left menu
-![alt text](/images/Jenkins2.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins2.png?raw=true)
 
 * Choose `Username and Password`, paste login and password. At the end we save it with the name "bitbucket-oauth2". Details will be provided on the day of training.
 
@@ -21,7 +21,7 @@
 
 ##### Freestyle job
 * Click on New item and select Freestyle project and setup name `JenkinsAdvancedIntegrationsOne` and click **OK**
-![alt text](/images/Jenkins35.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins35.png?raw=true)
 * Setup Source Code Management as git and paste Repository URL `https://bitbucket.org/mtraining/example-repo.git`
 
 * Go to `Post-build Actions` and choose **Bitbucket notify build status** and enable all options (`Notify build start`, `Notify build finish`, `Only show latest build status`). As credentials please use those generated earlier.
@@ -53,20 +53,20 @@ Sending build status INPROGRESS for commit 446b0a6614796340efbd24fa406ee1e74ab7b
 Sending build status SUCCESSFUL for commit 446b0a6614796340efbd24fa406ee1e74ab7b015 to BitBucket is done!
 Finished: SUCCESS
 ```
-![alt text](/images/Jenkins37.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins37.png?raw=true)
 
 ---
 
 ##### Pipeline Job
 * Click on New item and select Freestyle project and setup name `JenkinsAdvancedIntegrationsTwo` and click **OK**
-![alt text](/images/Jenkins38.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins38.png?raw=true)
 * Configure Pipeline
   * Choose Definition `Pipeline script from SCM`
   * Repository URL `https://github.com/spy86/CI_CD.git`
   * Credentials empty
   * Branch to build `main`
   * Script Path `jenkins-advanced-integrations/Jenkinsfile`
-![alt text](/images/Jenkins39.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins39.png?raw=true)
 
 Now we can run our pipeline. 
 

@@ -5,7 +5,7 @@
 * Install Jenkins
   * [With simple ansible playbook](jenkins-ansible/README.md)
   * [With docker-compose](jenkins-docker-compose/README.md)
-  * [With bash script](/jenkins-bash-script)
+  * [With bash script](/jenkins-bash-script/README.md)
 * Build sample NodeJS application
   * [Freestyle Job](example-nodejs-app/Freestyle-Job/Readme.md)
   * [Pipeline](example-nodejs-app/Pipeline-Job/Readme.md)

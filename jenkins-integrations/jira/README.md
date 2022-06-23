@@ -9,21 +9,21 @@
 #### Setup JIRA STEPS plugin in Jenkins
 * Go to `Manage Jenkins` -> `Configure System`
 * G0 to section `JIRA Steps` and setup jira credentials (will be provided on the day of training).
-![alt text](/images/Jenkins30.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins30.png?raw=true)
 
 #### Configure Pipeline
 * Click on New item and select pipeline and setup name `JIRAIntegration`
-![alt text](/images/Jenkins31.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins31.png?raw=true)
 
 * Configure Pipeline
   * Enable `This project is parameterized` and setup string parametr with name **TICKET_NUMBER**
-![alt text](/images/Jenkins32.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins32.png?raw=true)
   * Choose Definition `Pipeline script from SCM`
   * Repository URL `https://github.com/spy86/CI_CD.git`
   * Credentials empty
   * Branch to build `main`
   * Script Path `jenkins-integrations/jira/Jenkinsfile`
-![alt text](/images/Jenkins33.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins33.png?raw=true)
 
 Now we can run our pipeline. 
 
@@ -42,4 +42,4 @@ After a while, our buil should verify that the given ticket is of the correct ty
 
 ##### Comment in JIra ticket
 
-![alt text](/images/Jenkins34.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins34.png?raw=true)

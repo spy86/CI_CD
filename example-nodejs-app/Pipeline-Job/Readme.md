@@ -9,26 +9,26 @@
 #### Install plugin (If it has not been installed previously)
 
 * Click `Manage Jenkins`
-![alt text](/images/build1.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/build1.png?raw=true)
 
 * Next click `Manage Plugins` 
-![alt text](/images/build2.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/build2.png?raw=true)
 
 * Next choose **available** tab, and in the search field, type **nodejs**
-![alt text](/images/build3.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/build3.png?raw=true)
 
 * As the last step, select the plugin and click **install without restart**
-![alt text](/images/build4.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/build4.png?raw=true)
 
 * After a while the plugin will be installed and can be used with jenkins.
-![alt text](/images/build5.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/build5.png?raw=true)
 
 Now we can configure NodeJs tool in Jenkins
 * Again click `Manage Jenkins`
-![alt text](/images/build6.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/build6.png?raw=true)
 
 * Next click `Global Tool Configuration` and find **NodeJS**. Click **Add NodeJS** ,complete it as below and click save
-![alt text](/images/build7.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/build7.png?raw=true)
 
 #### Configure Jenkins Job
 
@@ -194,4 +194,4 @@ Archiving artifacts
 Finished: SUCCESS
 ```
 * Files in artifacts
-![alt text](/images/build14.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/build14.png?raw=true)
