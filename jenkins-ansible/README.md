@@ -47,7 +47,7 @@ target                     : ok=9    changed=9    unreachable=0    failed=0    s
 
 Wait for the playbook to finish and run the address http://<'IP-ADDRESS'>:8080 in the browser, You should see Jenkins welcome page.
 
-![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/JenkinsWelcomePage.png?raw=true)
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/JenkinsWelcomePage.png?raw=true)
 
 
 ## Configuration
