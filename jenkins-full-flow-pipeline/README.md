@@ -2,7 +2,7 @@
 
 ## Prerequisites
 * Docker engine (with swarm init)
-* Sonarqube
+* Sonarqube token
 
 ## How to use ?
 
@@ -10,17 +10,17 @@
 * Login into Sonarqube and generate access token
 
 * Create credentials on Jenkins for dockerhub, go to `Manage Jenkins`-> `Manage Credentials`
-![alt text](/images/Jenkins1.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins1.png?raw=true)
 
 * Click store `Jenkins` -> `Global credentials (unrestricted)` and then `Add Credentials` on the left menu
-![alt text](/images/Jenkins2.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins2.png?raw=true)
 
 * Choose `Secret text`, paste token generated in Sonarqube. At the end we save it with the name **sonarkey**
 
 
 #### Configure Pipeline
 * Click on New item and select pipeline and setup name `FullFlowPipeline`
-![alt text](/images/Jenkins8.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins8.png?raw=true)
 
 * Configure Pipeline
   * Choose Definition `Pipeline script from SCM`
@@ -28,7 +28,7 @@
   * Credentials empty
   * Branch to build `main`
   * Script Path `jenkins-full-flow-pipeline/Jenkinsfile`
-![alt text](/images/Jenkins9.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins9.png?raw=true)
 
 Now we can run our pipeline. 
 
@@ -320,6 +320,6 @@ mongo   docker-entrypoint.sh mongod   Up      0.0.0.0:27017->27017/tcp,:::27017-
 Finished: SUCCESS
 ```
 
-![alt text](/images/Jenkins10.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins10.png?raw=true)
 
-![alt text](/images/Jenkins11.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins11.png?raw=true)

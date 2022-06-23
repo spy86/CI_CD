@@ -8,13 +8,13 @@
 #### Setup SMTP in Jenkins
 * CLick `Manage Jenkins` -> `Configure System` 
 * Setup **System Admin e-mail address** (provided on the day of training)
-![alt text](/images/Jenkins25.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins25.png?raw=true)
 * Go to section `Extended E-mail Notification`, setup SMTP Server and credentials (will be provided on the day of training)
-![alt text](/images/Jenkins24.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins24.png?raw=true)
 
 #### Configure Pipeline
 * Click on New item and select pipeline and setup name `EmailIntegration`
-![alt text](/images/Jenkins26.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins26.png?raw=true)
 
 * Configure Pipeline
   * Choose Definition `Pipeline script from SCM`
@@ -22,7 +22,7 @@
   * Credentials empty
   * Branch to build `main`
   * Script Path `jenkins-integrations/email_slack/Email/Jenkinsfile`
-![alt text](/images/Jenkins27.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins27.png?raw=true)
 
 Now we can run our pipeline. 
 
@@ -67,4 +67,4 @@ Finished: FAILURE
 ```
 
 #### Example notification in Email
-![alt text](/images/Jenkins29.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins29.png?raw=true)

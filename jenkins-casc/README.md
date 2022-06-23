@@ -16,14 +16,14 @@ docker-compose build && docker-compose up -d
 ```
 After a while, the jenkins image will be built and run. We can enter it using the address `http://<IP-ADDRESS>:8089`, when jenkins starts up, an empty jenkins dashboard will appear.
 
-![alt text](/images/build15.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/build15.png?raw=true)
 
 * The plugin that we will need to support Configuration as a Code is already installed when building the image, we can verify it in: `Manage Jenkins` -> `Manage Plugins` -> `Installed`. In filter field we need to type **Configuration as Code Plugin** and installed plugin should be on the list
 
-![alt text](/images/build16.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/build16.png?raw=true)
 
 * We currently don't have any configuration applied as code yet. Only the default Jenkins configuration that is generated based on the current state is loaded. We can check this on: `Manage Jenkins` -> `Configuration as Code`. As we see controller has no configuration as code file set.
-![alt text](/images/build17.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/build17.png?raw=true)
 
 * Apply some example configuraion. We can do this by specifying a directory on disk or a URL. For the test we will provide the following URL and click **Apply new configuration**
 
@@ -33,17 +33,17 @@ After a while, the jenkins image will be built and run. We can enter it using th
 
 * After the configuration is applied, the information where the current config is downloaded from and when it was applied should appear.
 
-![alt text](/images/build18.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/build18.png?raw=true)
 
 * So let's check if the configuration of our Jenkins has been changed. Things that should change are:
 
   * On main dashboard we should see information **Jenkins configured automatically by Jenkins Configuration as Code plugin**
-  ![alt text](/images/build19.png "")
+  ![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/build19.png?raw=true)
 
   * You should see an example job named **Seedjob**
-  ![alt text](/images/build20.png "")
+  ![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/build20.png?raw=true)
   * Newly created credentials should appear. We can check this in `Manage Jenkins` -> `Manage Credentials`
-  ![alt text](/images/build21.png "")
+  ![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/build21.png?raw=true)
 
 #### Load configuration from directory
 
@@ -62,7 +62,7 @@ cd jenkins-casc
 docker-compose -f docker-compose-with-local-config.yml build && docker-compose -f docker-compose-with-local-config.yml up -d
 ```
 After a while, the jenkins image will be built and run. We can enter it using the address `http://<IP-ADDRESS>:8089`, when jenkins starts up, an empty jenkins dashboard will appear with loaded configuration.
-![alt text](/images/build22.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/build22.png?raw=true)
 
 * Let's change the configuration in the file and load the new configuration, to do this, just edit the file called "configurations.yml" which is mounted directly to the Jenkins container
 

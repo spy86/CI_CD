@@ -11,16 +11,16 @@
 
 #### Dockerhub Credentials
 * Create free account in dockerhub
-![alt text](/images/dockerhub.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/dockerhub.png?raw=true)
 
 * Create credentials on Jenkins for dockerhub, go to `Manage Jenkins`-> `Manage Credentials`
-![alt text](/images/Jenkins1.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins1.png?raw=true)
 
 * Click store `Jenkins` -> `Global credentials (unrestricted)` and then `Add Credentials` on the left menu
-![alt text](/images/Jenkins2.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins2.png?raw=true)
 
 * Choose `Username and Password`, paste login and password for dockerhub as below. At the end we save it with the name "dockerhub"
-![alt text](/images/Jenkins3.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins3.png?raw=true)
 
 ---
 #### Slack Setup Instructions
@@ -29,40 +29,40 @@
 * Create account in https://slack.com/
 * Create workspace 
 * After login to slack go to **Apps** and type **Jenkins CI** in Search.
-![alt text](/images/Jenkins18.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins18.png?raw=true)
 * Click **Add to slack** and follow the instructions
 
 ##### Jenkins
 * In your Jenkins dashboard, click on `Manage Jenkins` from the left navigation.
 * Click on Manage Plugins and search for `Slack Notification` in the Available tab. Click the checkbox and install the plugin.
-![alt text](/images/Jenkins16.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins16.png?raw=true)
 * After it's installed, click on `Manage Jenkins` again in the left navigation, and then go to `Configure System`. Find the `Slack` section and add the following values:
   * Workspace
   * Credential  
 
   The other fields are optional. You can click on the question mark icons next to them for more information. Press Save when you're done.
 
-![alt text](/images/Jenkins17.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins17.png?raw=true)
 
 #### Configure Pipeline
 * Click on New item and select pipeline and setup name `SlackIntegration`
-![alt text](/images/Jenkins19.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins19.png?raw=true)
 
 * Configure Pipeline
   * Enable `This project is parameterized` and setup string parametr with name **IMAGE_NAME**
-![alt text](/images/Jenkins20.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins20.png?raw=true)
   * Choose Definition `Pipeline script from SCM`
   * Repository URL `https://github.com/spy86/CI_CD.git`
   * Credentials empty
   * Branch to build `main`
   * Script Path `jenkins-integrations/email_slack/Slack/Jenkinsfile`
-![alt text](/images/Jenkins21.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins21.png?raw=true)
 
 
 Now we can run our pipeline. 
 
 * Click `Build with Parameters` provide image name and click **Build**
-![alt text](/images/Jenkins22.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins22.png?raw=true)
 
 After a while, our pipeline should build a docker image and then send notification on Slack channel.
 
@@ -181,4 +181,4 @@ Finished: SUCCESS
 ```
 #### Example notification in Slack
 
-![alt text](/images/Jenkins23.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins23.png?raw=true)

@@ -19,24 +19,24 @@
   * Confirm password: ssw0rd_123
   * Full name: Test User 02
   * E-mail address: test_user_02@example.com
-  ![alt text](/images/Jenkins40.png "")
+  ![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins40.png?raw=true)
 * Now we will be configure Global Security go to `Manage Jenkins` -> `Configure Global Security`, set as below and click save
   * For **Security Realm** set `Jenkins’ own user database`
   * For **Authorization** set `Role-Based Strategy`
   * For **CSRF Protection** check `Enable proxy compatibility`
 * Create two empty Freestyle project with name `Project_01` and `Project_02`
-![alt text](/images/Jenkins41.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins41.png?raw=true)
  * Now we will be configure roles go to `Manage Jenkins` -> `Manage and Assign Roles` -> `Manage Roles`, set as below and click save
    * For **Global roles** set new role called `user` with Overall Read Access
-![alt text](/images/Jenkins42.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins42.png?raw=true)
    * For **Item roles** set two roles for `Project_01` and `Project_02`
- ![alt text](/images/Jenkins43.png "")
+ ![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins43.png?raw=true)
  * Now we will be configure access restrictions go to `Manage Jenkins` -> `Manage and Assign Roles` -> `Assign Roles`, set as below and click save
    * For **Item roles** set access for `test_user_01` and `test_user_02`
-![alt text](/images/Jenkins44.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins44.png?raw=true)
 ---
 #### Testing
 * Login as `test_user_01` and we should see only project with name `Project_01`
-![alt text](/images/Jenkins45.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins45.png?raw=true)
 * Login as `test_user_02` and we should see only project with name `Project_02`
-![alt text](/images/Jenkins46.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins46.png?raw=true)

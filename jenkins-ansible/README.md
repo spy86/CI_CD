@@ -47,7 +47,7 @@ target                     : ok=9    changed=9    unreachable=0    failed=0    s
 
 Wait for the playbook to finish and run the address http://<'IP-ADDRESS'>:8080 in the browser, You should see Jenkins welcome page.
 
-![alt text](/images/JenkinsWelcomePage.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/JenkinsWelcomePage.png?raw=true)
 
 
 ## Configuration
@@ -58,15 +58,15 @@ root@vagrant:/home/vagrant/jenkins# cat /var/lib/jenkins/secrets/initialAdminPas
 ```
 
 * Paste this password inside page and click Continue
-![alt text](/images/AdminPassword.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/AdminPassword.png?raw=true)
 
 * Next install suggested plugins
-![alt text](/images/SuggestedPlugins.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/SuggestedPlugins.png?raw=true)
 
 * Wait For installation completed and then website will be redirect to creation local admin account.
-![alt text](/images/SuggestedPlugins2.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/SuggestedPlugins2.png?raw=true)
 
 * Setup local admin account and click **Save and Continue** and then **Save and FInish**
-![alt text](/images/LocalAdminAccount.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/LocalAdminAccount.png?raw=true)
 
 After that our Jenkins setup is complete and we can start using Jenkins.

@@ -8,7 +8,7 @@
 
 #### Configure Pipeline
 * Click on New item and select pipeline and setup name `SonarqubeIntegration`
-![alt text](/images/Jenkins12.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins12.png?raw=true)
 
 * Configure Pipeline
   * Choose Definition `Pipeline script from SCM`
@@ -16,7 +16,7 @@
   * Credentials empty
   * Branch to build `main`
   * Script Path `jenkins-integrations/sonarqube/Jenkinsfile`
-![alt text](/images/Jenkins13.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins13.png?raw=true)
 
 Now we can run our pipeline. 
 
@@ -257,6 +257,6 @@ INFO: ------------------------------------------------------------------------
 [Pipeline] End of Pipeline
 Finished: SUCCESS
 ```
-![alt text](/images/Jenkins14.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins14.png?raw=true)
 
-![alt text](/images/Jenkins15.png "")
+![alt text](https://github.com/spy86/CI_CD/blob/gh-pages/images/Jenkins15.png?raw=true)
