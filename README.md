@@ -1,6 +1,6 @@
 # Continuous Integration and Continuous Deployment
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![alt text](/images/ci-cd.jpg "")
+![alt text](https://github.com/SPY86/CI_CD/blob/gh-pages/ci-cd.jpg?raw=true)
 ## Content
 * Install Jenkins
   * [With simple ansible playbook](jenkins-ansible/README.md)
