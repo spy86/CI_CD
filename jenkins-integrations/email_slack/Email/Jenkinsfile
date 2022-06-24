@@ -1,6 +1,6 @@
 def subject = "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} ${currentBuild.result}"
 def content = '${JELLY_SCRIPT,template="html"}'
-def email_to = "contact@mtraining.ovh"
+def email_to = "${EMAIL}"
 
  pipeline {  
      agent any  
