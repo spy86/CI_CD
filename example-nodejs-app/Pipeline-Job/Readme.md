@@ -34,7 +34,7 @@ Now we can configure NodeJs tool in Jenkins
 
 * Click `Dashboard`
 * Click `New Item`
-* Enter an item name **ExampleNodejsBuildPipeline** choose `Freestyle project` and click **OK**
+* Enter an item name **ExampleNodejsBuildPipeline** choose `Pipeline job` and click **OK**
 * In Pipeline section choose `Definition Pipeline Script from SCM`. As SCM we will choose git and specify the same repository https://github.com/spy86/CI_CD. Change script path to `example-nodejs-app/Pipeline-Job/Jenkinsfile`. Rest of the settings we leave as default, the entire configuration of our pipeline is defined in the Jenkinsfile.
 
 #### Run Job
