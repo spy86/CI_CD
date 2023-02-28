@@ -1,5 +1,5 @@
 def sonarproject = 'gs-gradle'
-def sonarkey = '08f65dfd2e9957f27ae3d5aed4714651c5fb6f88'
+def sonarkey = '${SONARKEY}'
 def sonarhost = 'http://127.0.0.1:9000'
 
 node {
